@@ -4,7 +4,7 @@
 
 Getting started with Linked Open Data (LOD) can be overwhelming. At its core, LOD is a way of connecting elements of metadata records (**Title**, **Creator**, and so on) to accepted definitions that can be used and reused by anyone. Many of these collected definitions (or **taxonomies**–think of it like a dictionary) are community-sourced and accept additions and edits from community members worldwide. That's incredible! Instead of everyone making their own dictionaries, we can share one and agree together where the definitions live.
 
-![wikidata logo](images/wikidata.png | width=400)
+<img src="images/wikidata.png" alt="Wikidata logo" width="400px">
 
 For example, we can add "Alfred Hitchcock" as a creator to our record for our 16mm print of *The Lady Vanishes*. Our pals in Russia can add "Хичкок, Альфред" to their local record, and since we both point to the same **identifier** for Hitch (the [**URI**](https://www.wikidata.org/wiki/Q7374) hosted by **WikiData**) we all know who we are talking about. There is less confusion, less room for individual human error ("Afred Hichcok"?), and a shared responsibility for descriptive cataloging labor. This concept of **authorty control** has been around in libraries for over a century, but the _**Linked**_ part of Linked Open Data means that the structure of each record is defined in terms of its relationships to other defined terms, using terms that can be read and recognized by computers in addition to humans. This is key and why LOD is such a powerful way of describing things like audiovisual works.
 
