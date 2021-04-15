@@ -4,7 +4,7 @@
 
 Getting started with Linked Open Data (LOD) can be overwhelming. At its core, LOD is a way of connecting elements of metadata records (**Title**, **Creator**, and so on) to accepted definitions that can be used and reused by anyone. Many of these collected definitions (or **taxonomies**–think of it like a dictionary) are community-sourced and accept additions and edits from community members worldwide. That's incredible! Instead of everyone making their own dictionaries, we can share one and agree together where the definitions live.
 
-![wikidata logo](images/wikidata.png)
+![wikidata logo](images/wikidata.png | width=400)
 
 For example, we can add "Alfred Hitchcock" as a creator to our record for our 16mm print of *The Lady Vanishes*. Our pals in Russia can add "Хичкок, Альфред" to their local record, and since we both point to the same **identifier** for Hitch (the [**URI**](https://www.wikidata.org/wiki/Q7374) hosted by **WikiData**) we all know who we are talking about. There is less confusion, less room for individual human error ("Afred Hichcok"?), and a shared responsibility for descriptive cataloging labor. This concept of **authorty control** has been around in libraries for over a century, but the _**Linked**_ part of Linked Open Data means that the structure of each record is defined in terms of its relationships to other defined terms, using terms that can be read and recognized by computers in addition to humans. This is key and why LOD is such a powerful way of describing things like audiovisual works.
 
@@ -179,18 +179,30 @@ Here are some terms that are used with Linked Open Data. More definitions will c
 * Ontology
   * [Wikipedia page](https://en.wikipedia.org/wiki/Linked_data#Ontologies)
 * RDF
+  * "Resource Description Framework"
+	* This is a data model that defines how to describe the relationships between things or concepts. In the examples above, the **Subject**-**Predicate**-**Object** relationship is defined by RDF. **FOAF** ("Friend of a Friend") is a common implementation of RDF that can be used to define things like the **Predicate** "is the creator of" in the statement "Alfred Hitchcock is the creator of *Vertigo*."
+	* [Wikipedia page](https://en.wikipedia.org/wiki/Resource_Description_Framework)
 * schema.org
 * SPARQL
-  * This is a "query language" similar to SQL that actually does the linking between linked records. It uses the "**Subject**-**Predicate**-**Object**" structure of linked data (specifically in the **Resource Description Format** data structure). It is a powerful way of searching to link records using linked data.
+  * This is a "query language" similar to SQL that actually does the linking between linked records. It uses the "**Subject**-**Predicate**-**Object**" structure of linked data (specifically in the **Resource Description Framework** data structure). It is a powerful way of searching to link records using LOD.
 	* [Wikipedia page](https://en.wikipedia.org/wiki/SPARQL)
 * Taxonomy
+* Triple
+ * The "**Subject**-**Predicate**-**Object**" is the semantic relationship described by LOD, and is referred to as a "triple." In order to make a valid statement in LOD, you need to have each member of the triple. Spelling the triple out in a plain English statement can help conceptualize this: "Alfred Hitchock (**Subject**) is the director of (**Predicate**) *Vertigo* (**Object**)"
+ * [Wikipedia page](https://en.wikipedia.org/wiki/Semantic_triple)
 * WikiData
 * URI
   * Stands for "Uniform Resource Identifier." Ultimately this can be any string of characters that uniquely identify a given thing or concept. In practice, this is often a **URL**, "Uniform Resource Locator," so that you can both identify a thing and get to its definition within a given taxonomy.
 	* [Wikipedia page](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
 
+## More Resources
+
+Here are some resources that give more background information about linked data, and specifically LOD within AV archives. (More to come!)
+
+* From FIAF: "Cataloguing Practices in the Age of Linked Open Data: Wikidata and Wikibase for Film Archives"(https://www.fiafnet.org/pages/E-Resources/Cataloguing-Practices-Linked-Open-Data.html#_ftnref13)
+
 ## Future Work
 
 We aspire to act in alignment with the [FIAF LOD Task Force](https://www.fiafnet.org/pages/E-Resources/LoD-Task-Force-Workshop-2019.html)'s priorities by lowering the bar to engaging with linked data. With community input, we can put together more resources or tutorials based on need and interest.
 
-A missing resource on the web seems to be example records. We hope to add a number of them above.
+A missing resource on the web seems to be example records showing what an "end user" archivist would see in a cataloging system that uses LOD. We hope to add a number of mockups above.
