@@ -1,30 +1,71 @@
 
+
 # Linked Media Formats
 
-Getting started with LOD can be overwhelming. An accessible starting place is to think about linking existing catalog records with external data sources and vocabularies. The goal is to connect records  that refer to the same work, person, or format by using unique, linked identifiers. 
+Getting started with LOD can be overwhelming. An accessible starting place is to think about linking existing catalog records with external data sources and vocabularies. The goal is to connect records  that refer to the same work, person, or format by using unique, linked identifiers.
 
-## Schemas
-How does LOD fit in to metadata? One widely used and well-documented structured data format is  schema.org, which includes fields for LOD. Here is their example for a [Movie](https://schema.org/Movie) in JSON-LD format, with linked data fields in bold:
+## Intro
+How does LOD fit in to metadata? One widely used and well-documented structured data format is [schema.org](schema.org), which includes fields for LOD. Here is their metadata example for a [Movie](https://schema.org/Movie) in JSON-LD format, with linked data fields in bold:
 <pre>
-   {
-      "@type": "Movie",
-      "name": "The Hitchhiker's Guide to the Galaxy",
-     <b> "titleEIDR": "10.5240/B752-5B47-DBBE-E5D4-5A3F-N",
-      "editEIDR": "10.5240/0196-4177-FF62-A346-D0F6-Z",</b>
-      "disambiguatingDescription": "VUDU version",
-      "exampleOfWork":
-        {
-           "@type": "Movie",
-            <b> "sameAs": "https://www.wikidata.org/wiki/Q836821"</b>
-        }
-      }
-}</pre>
+{
+     "@type": "Movie",
+     <b>"@id": "https://www.wikidata.org/wiki/Q836821" </b>
+     "name": "The Hitchhiker's Guide to the Galaxy",
+     <b>"titleEIDR": "10.5240/B752-5B47-DBBE-E5D4-5A3F-N",</b>
+     "disambiguatingDescription": "VUDU version",
+}
+</pre>
 
-## Data Sources
-As seen above [WikiData](https://wikidata.org/) and the [Entertainment Identifier Registry (EIDR)](https://ui.eidr.org/) are two stable sources of identifiers. These are the two recommended sources from the [FIAF LOD Task Force](LOD-Task%20Force). You can also search for other LOD vocabulary and authority sources on [BARTOC](http://bartoc.org/), for example those related to "[film](http://bartoc.org/vocabularies?search=film#)".
+## Sources of Identifiers
+As seen in the schema.org example above, [WikiData](https://wikidata.org/) and the [Entertainment Identifier Registry (EIDR)](https://ui.eidr.org/) are two stable sources of LOD identifiers. In fact, these are the two recommended sources from the [FIAF LOD Task Force](https://www.fiafnet.org/pages/E-Resources/LoD-Task-Force-Workshop-2019.html).
+
+You can also search for other LOD vocabulary and authority sources on [BARTOC](http://bartoc.org/), for example those related to "[film](http://bartoc.org/vocabularies?search=film#)".
+
+
+## What is @id doing?
+Linking to external identifiers is at the heart of Linked Data. In JSON-LD, this is often done in the `@id` field. You can see the distinction below:
+
+A LOD resource as value:
+
+```
+{
+  "landingPage": {
+    "@id": "http://www.europeana.eu/portal/record/09102/_CM_0839888.html"
+  },
+  ...
+}
+
+```
+
+A string literal as value:
+
+```
+{
+  "creator": "Europeana",
+   ...
+}
+```
+## Schemas and Ontologies in JSON-LD
+
+It's possible to combine fields from different schemas and ontologies using the JSON-LD `@context` part. For example, here we know that fields from Dublin Core and the European Data Model (EDM) will be used to describe our item. Any field prefixed with `dc`, such as `dc:creator`, we know refers for the Dublin Core ontology.
+<pre>
+{
+  <b>"@context"</b>: {
+    "edm": "http://www.europeana.eu/schemas/edm/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+  },
+ "@graph": [{
+    ...
+   <b> "dc:creator": "AMIA Open Source",</b>
+    }]
+ }
+</pre>
+
+
+
 
 ## LOD for Media Formats
-We noticed that most writing on LOD for film and media focus on title and actor name authorities. We were curious about the implications for LOD for media formats and compiled the beginning of a list for reference.
+We noticed that most writing on LOD for film and media focus on title and name authorities. We were curious about the implications for LOD for media formats and compiled the beginning of a list for reference.
 
 ### Film
  - **PBCore** provides LOD for gauged film formats in its [instantiationPhysical Film Vocabulary](http://pbcore.org/pbcore-controlled-vocabularies/instantiationphysical-film-vocabulary/).
@@ -50,6 +91,58 @@ We noticed that most writing on LOD for film and media focus on title and actor 
 
 
 ## Example Record
-Here's an example of transforming an existing record
+Here's a kitchen sink example of a JSON-LD record, combining what we've outlined above!
 
+<pre>
+{
+  "@context": {
+    "sch": "https://schema.org/",
+    "edm": "http://www.europeana.eu/schemas/edm/",
+    "pbc": "http://pbcore.org/pbcore-controlled-vocabularies/",
+    "custom": "http://myinstitution.com"
+  },
+  "@graph": [
+    {
+      "@id": "https://www.wikidata.org/wiki/Q202548",
+      "@type": "sch:Movie",
+      "sch:name": "Vertigo",
+      "sch:datePublished": "1958",
+      "sch:director": {
+        "@id": "https://www.wikidata.org/wiki/Q7374"
+      },
+      "sch:titleEIDR": {
+        "@id": "10.5240/39FE-B96B-01BE-453E-64D7-E"
+      },
+      "sch:sameAs": {
+        "@id": "https://www.imdb.com/title/tt0052357"
+      },
+      "sch:workExample": {
+        "@type": "sch:Movie",
+        "sch:editEIDR": {
+          "@id": "10.5240/BDF9-F812-FC30-3EAF-AEB3-O",
+          "sch:disambiguatingDescription": "35mm Theatrical Print"
+        },
+        "sch:duration": "PT2H8M",
+        "pbc:instantiationPhysical": {
+          "@id": "http://pbcore.org/pbcore-controlled-vocabularies/instantiationphysical-film-vocabulary/#35mmFilm"
+        },
+        "custom:gauge": {
+          "@id": "https://www.wikidata.org/wiki/Q226528"
+        }
+      }
+    },
+    {
+      "@id": "http://semium.org/time/1958",
+      "@type": "edm:TimeSpan"
+    }
+  ]
+}
+</pre>
 
+Explanation of example record coming soon..
+
+## Future Work
+
+We aspire to act in alignment with the [FIAF LOD Task Force](https://www.fiafnet.org/pages/E-Resources/LoD-Task-Force-Workshop-2019.html)'s priorities by lowering the bar to engaging with linked data. With community input, we can put together more resources or tutorials based on need and interest.
+
+A missing resource on the web seems to be example records. We hope to add a number of them above.
