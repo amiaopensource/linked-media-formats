@@ -45,6 +45,9 @@ A string literal as value:
    ...
 }
 ```
+
+(source: [Europeana](https://pro.europeana.eu/page/record))
+
 ## Schemas and Ontologies in JSON-LD
 
 It's possible to combine fields from different schemas and ontologies using the JSON-LD `@context` part. For example, here we know that fields from Dublin Core and the European Data Model (EDM) will be used to describe our item. Any field prefixed with `dc`, such as `dc:creator`, we know refers for the Dublin Core ontology.
