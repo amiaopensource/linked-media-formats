@@ -6,7 +6,7 @@ Getting started with Linked Open Data (LOD) can be overwhelming. At its core, LO
 
 <img src="images/wikidata.png" alt="Wikidata logo" width="400px">
 
-For example, we can add "Alfred Hitchcock" as a creator to our record for our 16mm print of *The Lady Vanishes*. Our pals in Russia can add "Хичкок, Альфред" to their local record, and since we both point to the same **identifier** for Hitch (the [**URI**](https://www.wikidata.org/wiki/Q7374) hosted by **WikiData**) we all know who we are talking about. There is less confusion, less room for individual human error ("Afred Hichcok"?), and a shared responsibility for descriptive cataloging labor. This concept of **authorty control** has been around in libraries for over a century, but the _**Linked**_ part of Linked Open Data means that the structure of each record is defined in terms of its relationships to other defined terms, using terms that can be read and recognized by computers in addition to humans. This is key and why LOD is such a powerful way of describing things like audiovisual works.
+For example, we can add "Alfred Hitchcock" as a creator to our record for our 16mm print of *The Lady Vanishes*. Our pals in Russia can add "Хичкок, Альфред" to their local record, and since we both point to the same **identifier** for Hitch (the [**URI**](https://www.wikidata.org/wiki/Q7374) hosted by **WikiData**) we all know who we are talking about. There is less confusion, less room for individual human error ("Afred Hichcok"?), and a shared responsibility for descriptive cataloging labor. This concept of **authority control** has been around in libraries for over a century, but the _**Linked**_ part of Linked Open Data means that the structure of each record is defined in terms of its relationships to other defined terms, using terms that can be read and recognized by computers in addition to humans. This is key and why LOD is such a powerful way of describing things like audiovisual works.
 
 ![top of wikidata page for Alfred Hitchcock](images/hitchcock.png)
 
@@ -164,7 +164,7 @@ Explanation of example record coming soon..
 Here are some terms that are used with Linked Open Data. More definitions will come soon!
 
 * Identifier
-  * This is the unique identifier used within a system (like WikiData) that points to the thing being described. In the examples above, within the WikiData universe, the identifer "Q7374" means "the Alfred Hitchock who was a film director and lived from 1899-1980."
+  * This is the unique identifier used within a system (like WikiData) that points to the thing being described. In the examples above, within the WikiData universe, the identifier "Q7374" means "the Alfred Hitchcock who was a film director and lived from 1899-1980."
 	* This concept is related to **URI** below, as it is usually part of the full link to the item within a given system.
 * JSON
   * "JavaScript Object Notation"
@@ -188,7 +188,7 @@ Here are some terms that are used with Linked Open Data. More definitions will c
 	* [Wikipedia page](https://en.wikipedia.org/wiki/SPARQL)
 * Taxonomy
 * Triple
- * The "**Subject**-**Predicate**-**Object**" is the semantic relationship described by LOD, and is referred to as a "triple." In order to make a valid statement in LOD, you need to have each member of the triple. Spelling the triple out in a plain English statement can help conceptualize this: "Alfred Hitchock (**Subject**) is the director of (**Predicate**) *Vertigo* (**Object**)"
+ * The "**Subject**-**Predicate**-**Object**" is the semantic relationship described by LOD, and is referred to as a "triple." In order to make a valid statement in LOD, you need to have each member of the triple. Spelling the triple out in a plain English statement can help conceptualize this: "Alfred Hitchcock (**Subject**) is the director of (**Predicate**) *Vertigo* (**Object**)"
  * [Wikipedia page](https://en.wikipedia.org/wiki/Semantic_triple)
 * WikiData
 * URI
